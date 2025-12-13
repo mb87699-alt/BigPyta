@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkScan - Inteligentny System Monitoringu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PARK<span class="accent">SCAN</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Start</a></li>
+            <li><a href="#about">O nas</a></li>
+            <li><a href="#offer">Oferta</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="demo.html" class="btn-demo">Zobacz DEMO</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="overlay"></div>
+        <img src="https://placehold.co/1920x1080/333333/ffffff?text=Background:+Parking+Top+View" alt="Parking Background" class="hero-bg">
+        
+        <div class="hero-content">
+            <h1 class="glitch" data-text="MONITORING PRZYSZŁOŚCI">MONITORING PRZYSZŁOŚCI</h1>
+            <p>Zarządzaj przestrzenią parkingową w czasie rzeczywistym dzięki AI.</p>
+            <div class="hero-buttons">
+                <a href="#offer" class="btn-primary">Sprawdź Ofertę</a>
+                <a href="#" class="btn-outline">Zobacz Demo</a>
+            </div>
+        </div>
+        
+        <div class="scanner-line"></div>
+    </header>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">O Systemie</h2>
+            <div class="grid-2">
+                <div class="about-text fade-in-left">
+                    <h3>Precyzja co do centymetra</h3>
+                    <p>Nasz system wykorzystuje zaawansowane algorytmy wizyjne, by analizować zajętość miejsc parkingowych tak, jak widać to na zdjęciach lotniczych. Zamieniamy chaos w uporządkowane dane.</p>
+                    <ul class="feature-list">
+                        <li>Analiza obrazu w czasie rzeczywistym</li>
+                        <li>Integracja z chmurą</li>
+                        <li>Brak potrzeby montowania czujników w asfalcie</li>
+                    </ul>
+                </div>
+                <div class="about-image fade-in-right">
+                    <img src="https://placehold.co/600x400/2c3e50/ffffff?text=AI+Vision+Analysis" alt="Analiza AI">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offer" class="section-dark section-padding">
+        <div class="container">
+            <h2 class="section-title light">Nasza Oferta</h2>
+            <div class="offer-grid">
+                <div class="offer-card">
+                    <div class="card-icon">🚗</div>
+                    <h3>Detekcja Pojazdów</h3>
+                    <p>Automatyczne rozpoznawanie zajętości miejsc i zliczanie wolnych slotów.</p>
+                    <a href="#" class="read-more">Więcej &rarr;</a>
+                </div>
+                <div class="offer-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Analityka Danych</h3>
+                    <p>Raporty rotacji pojazdów i godzin szczytu generowane na żywo.</p>
+                    <a href="#" class="read-more">Więcej &rarr;</a>
+                </div>
+                <div class="offer-card">
+                    <div class="card-icon">📱</div>
+                    <h3>Aplikacja Mobilna</h3>
+                    <p>Nawigacja dla kierowców bezpośrednio do wolnego miejsca.</p>
+                    <a href="#" class="read-more">Więcej &rarr;</a>
+                </div>
+                 <div class="offer-card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Bezpieczeństwo</h3>
+                    <p>Wykrywanie nieprawidłowego parkowania i zdarzeń nietypowych.</p>
+                    <a href="#" class="read-more">Więcej &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Skontaktuj się</h2>
+            <div class="contact-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <div class="input-group">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Imię i nazwisko</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Adres Email</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" required placeholder=" "></textarea>
+                        <label for="message">Wiadomość</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Wyślij</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ParkScan. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script src="demo-storage.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
