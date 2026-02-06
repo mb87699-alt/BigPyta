@@ -1,0 +1,532 @@
+:root {
+    --primary-color: #3498db; /* Niebieski techniczny */
+    --accent-color: #e74c3c; /* Czerwony alarmowy */
+    --success-color: #2ecc71; /* Zielony wolny */
+    --dark-bg: #1a1a1a;
+    --light-bg: #f4f4f4;
+    --text-dark: #333;
+    --text-light: #ecf0f1;
+    --asphalt: #2c3e50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+}
+
+/* --- Nawigacja --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(26, 26, 26, 0.95);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.logo {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo .accent {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.btn-demo {
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn-demo:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* --- Sekcja Hero --- */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: grayscale(80%) contrast(120%); /* Efekt kamery przemysłowej */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    background-image: 
+        linear-gradient(rgba(52, 152, 219, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(52, 152, 219, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px; /* Siatka */
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+}
+
+.hero-content p {
+    color: #ccc;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 2px solid var(--text-light);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 1rem;
+    transition: background 0.3s;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Animacja skanera */
+.scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+    animation: scan 4s infinite linear;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+@keyframes scan {
+    0% { top: 0%; }
+    50% { top: 100%; }
+    100% { top: 0%; }
+}
+
+/* --- Wspólne klasy sekcji --- */
+.section-padding {
+    padding: 5rem 10%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.section-title.light {
+    color: var(--text-light);
+}
+
+/* --- Grid i Układy --- */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.feature-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.feature-list li::before {
+    content: '✓';
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 20px 20px 0 var(--asphalt);
+}
+
+/* --- Sekcja Oferta --- */
+.section-dark {
+    background-color: var(--asphalt);
+    color: var(--text-light);
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.offer-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efekt "Miejsca Parkingowego" */
+.offer-card::before, .offer-card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.offer-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.offer-card:hover::before {
+    top: 0; left: 0;
+    border-top-color: var(--primary-color);
+    border-left-color: var(--primary-color);
+}
+
+.offer-card:hover::after {
+    bottom: 0; right: 0;
+    border-bottom-color: var(--primary-color);
+    border-right-color: var(--primary-color);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* --- Sekcja Cennik --- */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2);
+}
+
+.pricing-card.featured {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(52, 152, 219, 0.3);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.08) translateY(-5px);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #eee;
+}
+
+.pricing-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.price .currency {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.price .amount {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Rajdhani', sans-serif;
+    line-height: 1;
+}
+
+.price .period {
+    font-size: 1rem;
+    color: #666;
+}
+
+.pricing-features {
+    list-style: none;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.pricing-features li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.btn-pricing {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.3s;
+    margin-top: 1.5rem;
+}
+
+.btn-pricing:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.pricing-card.featured .btn-pricing {
+    background: var(--accent-color);
+}
+
+.pricing-card.featured .btn-pricing:hover {
+    background: #c0392b;
+}
+
+.pricing-note {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.pricing-note p {
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* --- Formularz --- */
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #999;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.input-group input:focus, .input-group input:not(:placeholder-shown),
+.input-group textarea:focus, .input-group textarea:not(:placeholder-shown) {
+    border-bottom-color: var(--primary-color);
+}
+
+.input-group input:focus + label, .input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label, .input-group textarea:not(:placeholder-shown) + label {
+    top: -20px;
+    left: 0;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+footer {
+    background: var(--dark-bg);
+    color: #777;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* --- Animacje wejścia --- */
+.fade-in-left { opacity: 0; transform: translateX(-50px); transition: 1s all ease; }
+.fade-in-right { opacity: 0; transform: translateX(50px); transition: 1s all ease; }
+.visible { opacity: 1; transform: translateX(0); }
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } /* Uproszczenie dla demo */
+    .section-padding { padding: 3rem 5%; }
+}

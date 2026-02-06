@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkScan - Panel DEMO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="demo-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="dashboard-nav">
+        <div class="logo-small">PARK<span class="accent">SCAN</span> <span class="badge">LIVE DEMO</span></div>
+        <div class="nav-controls">
+            <a href="index.html" class="btn-back">← Powrót</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="stats-box">
+                <h3>Status Parkingu</h3>
+                <div class="stat-item">
+                    <span class="label">Całkowita pojemność:</span>
+                    <span class="value" id="total-capacity">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Zajęte miejsca:</span>
+                    <span class="value accent" id="occupied-spots">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Wolne miejsca:</span>
+                    <span class="value success" id="free-spots">0</span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar-fill" id="occupancy-bar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="details-box" id="details-panel">
+                <h3>Szczegóły Miejsca</h3>
+                <p class="placeholder-text">Kliknij w miejsce na mapie, aby zobaczyć dane.</p>
+                <div class="detail-content hidden">
+                    <div class="detail-row">
+                        <span>ID Miejsca:</span> <strong id="det-id">---</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Status:</span> <strong id="det-status">---</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Nr Rejestracyjny:</span> <strong id="det-plate" class="plate-font">---</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Czas wjazdu:</span> <span id="det-time">---</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Czas zajęcia:</span> <span id="det-duration">---</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Kwota do zapłaty:</span> <strong id="det-cost" class="cost-value">---</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="simulation-controls">
+                <h3>Symulacja Ruchu</h3>
+                <p>Symuluj wjazd i wyjazd aut w czasie rzeczywistym.</p>
+                <button id="toggle-sim" class="btn-sim">Uruchom Symulację AI</button>
+            </div>
+
+            <div class="manual-controls">
+                <h3>Tryb Ręczny</h3>
+                <p>Kliknij dwukrotnie miejsce, aby zmienić jego status.</p>
+                <button id="toggle-edit" class="btn-sim">Tryb Edycji: WYŁĄCZONY</button>
+            </div>
+        </aside>
+
+        <main class="map-view">
+            <div class="map-header">
+                <h2>Wizualizacja Sektorów</h2>
+                <div class="legend">
+                    <span class="legend-item"><span class="dot free"></span> Wolne</span>
+                    <span class="legend-item"><span class="dot occupied"></span> Zajęte</span>
+                </div>
+            </div>
+            
+            <div class="parking-grid-container">
+                <div id="parking-map" class="parking-map"></div>
+                
+                <div class="scan-overlay"></div>
+            </div>
+
+            <div class="charts-section">
+                <h2>Wizualizacja Danych</h2>
+                <div class="charts-container">
+                    <div class="chart-box chart-box-full">
+                        <h3>Obłożenie w Czasie</h3>
+                        <canvas id="occupancy-chart" width="1600" height="700"></canvas>
+                    </div>
+                    <div class="chart-box chart-box-full">
+                        <h3>Rozkład per Sektor</h3>
+                        <canvas id="sector-chart" width="1600" height="700"></canvas>
+                    </div>
+                    <div class="chart-box chart-box-full">
+                        <h3>Przewidywane Zyski z Dnia</h3>
+                        <canvas id="revenue-chart" width="1600" height="700"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="demo-logic.js"></script>
+</body>
+</html>
